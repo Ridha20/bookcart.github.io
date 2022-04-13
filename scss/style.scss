@@ -1,0 +1,411 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500&display=swap');
+
+*{
+   font-family: 'Nunito', sans-serif;
+   margin:0; padding:0;
+   box-sizing: border-box;
+   outline: none; border:none;
+   text-decoration: none !important;
+   transition: all .2s linear;
+}
+
+$green:#309b6eb7;
+$white:#fff;
+$black:#000;
+$light-color:#ccc;
+$bg-color:#09804e31;
+$border:.1rem solid rgba(27, 26, 26, 0.2);
+$darkgreen:rgb(12, 39, 16);
+@mixin grid($val) {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax($val, 1fr));
+   gap:2rem;
+}
+
+@mixin title-text($titleText) {
+   font-size: $titleText;
+   text-transform: capitalize;
+   color:$white;
+}
+
+@mixin graph-text($graphText) {
+   font-size: $graphText;
+   line-height: 2;
+   color:$light-color;
+}
+
+html{
+   overflow-x: hidden;
+   font-size: 62.5%;
+   scroll-behavior: smooth;
+   scroll-padding-top: 8rem;
+
+   &::-webkit-scrollbar{
+      width: 1rem;
+   }
+
+   &::-webkit-scrollbar-track{
+      background: $bg-color;
+   }
+
+   &::-webkit-scrollbar-thumb{
+      background: $green;
+   }
+}
+
+body{
+   background: $bg-color;
+    h1{
+       color: $white;
+    }
+}
+
+section{
+   padding:3rem 1rem;
+  
+}
+
+.link-btn{
+   margin-top: 1rem;
+   display: inline-block;
+   padding:1rem 3rem;
+   background: $green;
+   color:$white;
+   cursor: pointer;
+   border-radius: .5rem;
+   font-size: 1.8rem;
+   text-transform: capitalize;
+
+   &:hover{
+      background: $white;
+      color:$green;
+   }
+}
+
+.heading{
+   text-align: center;
+   margin-bottom: 3rem;
+
+   span{
+      font-size: 2.5rem;
+      color:$green;
+   }
+
+   h3{
+      @include title-text(3.5rem);
+   }
+}
+
+.header{
+   z-index: 1000;
+   padding:3rem 1rem;
+
+   &.active{
+      background: $white;
+      padding:2rem 0;
+
+      .logo{
+         color:$black;
+      }
+
+      .nav a{
+         color:$black;
+      }
+
+      #menu-btn{
+         color:$black;
+      }
+   }
+
+   .logo{
+      font-size: 2.5rem;
+      color:$white;
+      font-weight: bolder;
+
+      span{
+         color:$darkgreen;
+      }
+   }
+
+   .nav a{
+      font-size: 2rem;
+      margin-left: 2rem;
+      color:$white;
+
+      &:hover{
+         color:$green;
+      }
+   }
+
+   #menu-btn{
+      display: none;
+      font-size: 2.5rem;
+      cursor: pointer;
+      color:$white;
+   }
+}
+
+
+.home{
+   background:url("../img/cover.jpg") no-repeat;
+   background-size: cover;
+   background-position: center;
+   background-attachment: fixed;
+   padding-top: 5rem;
+
+   span{
+      font-size: 2.5rem;
+      color:$darkgreen;
+   }
+
+   h3{
+      @include title-text(5rem);
+      padding-top: 1rem;
+   }
+}
+
+.about{
+
+   text-align: center;
+   span{
+      font-size: 2.5rem;
+      color:$green;
+   }
+
+   h1{
+      @include title-text(2.7rem);
+      padding: 1rem 0;
+      color: $white;
+   }
+
+   p{
+      @include graph-text(1.5rem);
+      color: $black;
+   }
+
+   ul{
+      list-style: none;
+
+      li{
+         padding-top: 1.5rem;
+         @include title-text(1.7rem);
+
+         i{
+            padding-right: 1rem;
+            color:$green;
+         }
+      }
+   }
+}
+
+
+
+.book_genre{
+
+   .box-container{
+      @include grid(30rem);
+
+      .box{
+        border: $border;
+        color:$darkgreen
+ 
+        }
+
+        .content{
+           padding:2rem;
+
+              span{
+                 @include title-text(1.7rem);
+                 color: $bg-color;
+
+                 i{
+                    color:$green;
+                    padding-right: .5rem;
+                 }
+              }
+          
+
+           h3{
+              @include title-text(2.7rem);
+              color:$black;
+              padding:.5rem 0;
+           }
+
+           p{
+              color:$black;
+              font-size: large;
+           }
+        }
+      }
+   }
+
+
+.deal{
+      background:$white;
+      display:flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap:1.5rem;
+  
+  
+      .content{
+        flex:1 1 42rem;
+  
+
+          .image{
+               flex:1 1 42rem;
+  
+                  img{
+                      width: 100%;
+                      }
+                  }
+  
+  h3{
+      color:var(--green);
+      font-size: 3.0rem;
+      padding-bottom: .5rem;
+  }
+  
+   h1{
+      color:var(--black);
+      font-size: 4rem;
+  }
+  
+   p{
+      padding:1rem 0;
+      color:var(--light-color);
+      font-size: 2.0rem;
+      line-height: 2;
+  }
+}
+}
+
+.counter{
+   background: url(../img/cover.jpg) no-repeat;
+   background-size: cover;
+   background-position: center;
+
+   .box-container{
+      @include grid(25rem);
+
+      .box{
+         text-align: center;
+
+         h3{
+            font-size: 5rem;
+            color:$white;
+         }
+
+         p{
+            @include title-text(2rem);
+         }
+      }
+   }
+}
+   
+.footer{
+   background-color: $green;
+  
+
+   .box-container{
+      @include grid(25rem);     
+    }
+
+ 
+      .box{
+
+         h3{
+            @include title-text(2rem);
+            padding:1rem 0;
+         }
+
+         a{
+            @include graph-text(1.6rem);
+            padding:.5rem 0;
+            display: block;
+
+            i{
+               padding-right: .5rem;
+               color:$green;
+            }
+
+            &:hover{
+               color:$white;
+            }
+         }
+
+         p{
+            @include graph-text(1.8rem);
+         }
+
+         .details{
+            width: 100%;
+            padding:1.2rem;
+            font-size: 1.6rem;
+            border:$border;
+            margin:1rem 0;
+         }
+      
+      }
+   }
+   
+
+
+
+
+
+// media queries 
+
+@media (max-width:991px){
+   html{
+      font-size: 55%;
+   }
+   .home h3{
+      font-size: 3rem;
+   }
+ 
+}
+
+@media (max-width:768px){
+
+   .header{
+      padding:2rem;
+
+      &.active{
+         padding:2rem;
+      }
+
+      #menu-btn{
+         display: inline-block;
+
+         &.fa-times{
+            transform: rotate(180deg);
+         }
+      }
+      .nav{
+         position: absolute;
+         top:99%; left:0; right:0;
+         background: $white;
+         padding:1rem 0;
+         flex-flow: column;
+         clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+
+         &.active{
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+         }
+
+         a{
+            color:$black;
+            margin:1rem 2rem;
+         }
+      }
+   }
+
+}
+
+@media (max-width:450px)
+{
+   html{
+      font-size: 50%;
+   }
+}
